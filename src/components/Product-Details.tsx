@@ -1,5 +1,5 @@
 import  { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Product } from '../model/Product';
 
 const ProductDetail = () => {
@@ -23,12 +23,6 @@ const ProductDetail = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Link 
-        to="/" 
-        className="mb-8 inline-block font-medium text-blue-600 hover:text-blue-800"
-      >
-        ← Retour aux produits
-      </Link>
       <div className="flex flex-col gap-8 rounded-lg bg-white p-8 shadow-lg md:flex-row">
         <div className="md:w-1/2">
           <img 
@@ -46,9 +40,7 @@ const ProductDetail = () => {
           <p className="mb-6 text-3xl font-bold text-blue-600">
             {product.price.toFixed(2)} €
           </p>
-          <button className="rounded-lg bg-blue-600 px-8 py-3 font-medium text-white transition-colors hover:bg-blue-700">
-            Ajouter au panier
-          </button>
+        
         </div>
       </div>
     </div>

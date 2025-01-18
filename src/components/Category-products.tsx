@@ -31,16 +31,6 @@ const CategoryProducts = () => {
       });
   }, [categoryName]);
 
-  const formatCategoryName = (category: string) => {
-    const translations: { [key: string]: string } = {
-      "men's clothing": "Vêtements Hommes",
-      "women's clothing": "Vêtements Femmes",
-      "jewelery": "Bijoux",
-      "electronics": "Électronique"
-    };
-    return translations[category] || category;
-  };
-
   const totalPages = Math.ceil(products.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = products.slice(startIndex, startIndex + productsPerPage);
@@ -53,7 +43,7 @@ const CategoryProducts = () => {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <div className="size-16 animate-spin rounded-full border-b-2 border-blue-600"></div>
+        <div className="size-16 animate-spin rounded-full border-b-2 border-pink-800"></div>
       </div>
     );
   }
@@ -66,21 +56,21 @@ const CategoryProducts = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-12 text-center">
         <h1 className="relative inline-block text-4xl font-bold text-gray-800">
-          <span className="absolute -left-4 top-0 h-full w-1 bg-blue-600"></span>
-          {formatCategoryName(categoryName?? '')}
-          <span className="absolute -right-4 top-0 h-full w-1 bg-blue-600"></span>
+          <span className="absolute -left-4 top-0 h-full w-1 bg-pink-800"></span>
+          {categoryName?? ''}
+          <span className="absolute -right-4 top-0 h-full w-1 bg-pink-800"></span>
         </h1>
         <div className="mt-4 text-gray-600">
           <p className="text-lg">
             Affichage des produits{' '}
-            <span className="font-semibold text-blue-600">
+            <span className="font-semibold text-pink-600">
               {startIndex + 1} - {Math.min(startIndex + productsPerPage, products.length)}
             </span>{' '}
             sur{' '}
-            <span className="font-semibold text-blue-600">{products.length}</span> produits
+            <span className="font-semibold text-pink-600">{products.length}</span> produits
           </p>
         </div>
-        <div className="mx-auto mt-4 h-1 w-24 bg-blue-600"></div>
+        <div className="mx-auto mt-4 h-1 w-24 bg-pink-600"></div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -95,10 +85,10 @@ const CategoryProducts = () => {
                 />
               </div>
               <div className="p-4">
-                <h2 className="mb-2 line-clamp-2 text-lg font-semibold group-hover:text-blue-600">
+                <h2 className="line-clamp-2 text-sm group-hover:text-pink-600">
                   {product.title}
                 </h2>
-                <p className="text-2xl font-bold text-blue-600">
+                <p className="text-2xl font-bold text-pink-600">
                   {product.price.toFixed(2)} €
                 </p>
               </div>
@@ -114,7 +104,7 @@ const CategoryProducts = () => {
           className={`rounded px-4 py-2 transition-colors ${
             currentPage === 1
               ? 'cursor-not-allowed bg-gray-300'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-pink-600 text-white hover:bg-pink-700'
           }`}
         >
           Previous
@@ -125,7 +115,7 @@ const CategoryProducts = () => {
             onClick={() => handlePageChange(index + 1)}
             className={`rounded px-4 py-2 transition-colors ${
               currentPage === index + 1
-                ? 'bg-blue-600 text-white'
+                ? 'bg-pink-600 text-white'
                 : 'bg-gray-200 hover:bg-gray-300'
             }`}
           >
@@ -138,7 +128,7 @@ const CategoryProducts = () => {
           className={`rounded px-4 py-2 transition-colors ${
             currentPage === totalPages
               ? 'cursor-not-allowed bg-gray-300'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-pink-600 text-white hover:bg-pink-700'
           }`}
         >
           Next

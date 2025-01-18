@@ -8,7 +8,7 @@ const ProductList = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const productsPerPage = 8;
+  const productsPerPage = 12;
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -48,42 +48,39 @@ const ProductList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-12 text-center">
+      <div className="mb-12">
         <h1 className="relative inline-block text-4xl font-bold text-gray-800">
-          <span className="absolute -left-4 top-0 h-full w-1 bg-blue-600"></span>
           Fake Boutique
-          <span className="absolute -right-4 top-0 h-full w-1 bg-blue-600"></span>
         </h1>
         <div className="mt-4 text-gray-600">
-          <p className="text-lg">
+          <p className="text-sm">
             Affichage des produits{' '}
-            <span className="font-semibold text-blue-600">
+            <span className="font-semibold">
               {startIndex + 1} - {Math.min(startIndex + productsPerPage, products.length)}
             </span>{' '}
             sur{' '}
-            <span className="font-semibold text-blue-600">{products.length}</span> produits
+            <span className="font-semibold">{products.length}</span> produits
           </p>
         </div>
-        <div className="mx-auto mt-4 h-1 w-24 bg-blue-600"></div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
         {currentProducts.map((product) => (
           <Link key={product.id} to={`/product/${product.id}`} className="group">
-            <div className="overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105">
+            <div className="h-full overflow-hidden rounded-2xl border bg-white shadow-none transition duration-300 hover:shadow-lg">
               <div className="h-64 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="size-full object-contain p-4"
+                  className="size-full object-contain px-6 py-8"
                 />
               </div>
-              <div className="p-4">
-                <h2 className="mb-2 line-clamp-2 text-lg font-semibold group-hover:text-blue-600">
+              <div className="flex flex-col justify-between gap-3 px-4 py-8">
+                <h6 className="line-clamp-2 text-sm group-hover:text-pink-800">
                   {product.title}
-                </h2>
-                <p className="text-2xl font-bold text-blue-600">
-                  {product.price.toFixed(2)} €
+                </h6>
+                <p className="text-lg font-bold">
+                  {product.price.toFixed(2)} MAD
                 </p>
               </div>
             </div>
@@ -98,10 +95,10 @@ const ProductList = () => {
           className={`rounded px-4 py-2 transition-colors ${
             currentPage === 1
               ? 'cursor-not-allowed bg-gray-300'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-pink-800 text-white hover:bg-pink-800'
           }`}
         >
-          Previous
+          Précédent
         </button>
         {[...Array(totalPages)].map((_, index) => (
           <button
@@ -109,7 +106,7 @@ const ProductList = () => {
             onClick={() => handlePageChange(index + 1)}
             className={`rounded px-4 py-2 transition-colors ${
               currentPage === index + 1
-                ? 'bg-blue-600 text-white'
+                ? 'bg-pink-600 text-white'
                 : 'bg-gray-200 hover:bg-gray-300'
             }`}
           >
@@ -122,10 +119,10 @@ const ProductList = () => {
           className={`rounded px-4 py-2 transition-colors ${
             currentPage === totalPages
               ? 'cursor-not-allowed bg-gray-300'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-pink-800 text-white hover:bg-pink-800'
           }`}
         >
-          Next
+          Suivant
         </button>
       </div>
     </div>
