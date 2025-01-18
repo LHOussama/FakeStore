@@ -67,7 +67,7 @@ const CategoryProducts = () => {
       <div className="mb-12 text-center">
         <h1 className="relative inline-block text-4xl font-bold text-gray-800">
           <span className="absolute -left-4 top-0 h-full w-1 bg-blue-600"></span>
-          {formatCategoryName(categoryName)}
+          {formatCategoryName(categoryName?? '')}
           <span className="absolute -right-4 top-0 h-full w-1 bg-blue-600"></span>
         </h1>
         <div className="mt-4 text-gray-600">
