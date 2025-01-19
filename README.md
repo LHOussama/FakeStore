@@ -48,3 +48,6 @@ export default tseslint.config({
   },
 })
 ```
+
+# 1- Components
+## NavB

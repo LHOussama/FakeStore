@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/nav-bar';
-import ProductList from './components/Product-list';
-import ProductDetail from './components/Product-Details';
+import NavBar from './components/Navbar';
+import ProductList from './components/Products';
+import ProductDetail from './components/ProductDetails';
 
 const  App = () => {
   return (
