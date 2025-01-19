@@ -16,12 +16,7 @@ const NavBar = () => {
           </div>
           <div className="col-span-7">
             <div className='grow'>
-              <div className="flex w-full">
-                <input type="text" placeholder="Search..." className="w-full rounded rounded-e-none border border-e-0 border-gray-300 px-4 py-2 transition focus:border-pink-800 focus:outline-none focus:ring-1 focus:ring-pink-800"/>
-                <button className="rounded rounded-s-none bg-pink-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-pink-900">
-                  Search
-                </button>
-              </div>
+              
 
             </div>
           </div>
